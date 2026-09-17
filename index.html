@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta — Soberanía Digital · TheSports.cl · Lost Astronauta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  /* ============================================================
+     LOST ASTRONAUTA × THESPORTS.CL — Propuesta A4
+     Identidad: negro #050505 + verde neón #06FF23
+     Tipos: Orbitron (display) + Space Mono (texto/UI)
+     Estructura: 3 páginas A4 fijas, listas para exportar a PDF
+     ============================================================ */
+  :root{
+    --bg:#050505;
+    --page:#060606;
+    --panel:#0d0d0d;
+    --panel-2:#0a0a0a;
+    --panel-green:#071108;
+    --line:#1c1c1c;
+    --line-soft:#141414;
+    --grey:#8a8a8a;
+    --dim:#5a5a5a;
+    --faint:#3a3a3a;
+    --body:#c9c9c9;
+    --white:#ffffff;
+    --acc:#06FF23;
+    --acc-55:rgba(6,255,35,.55);
+    --acc-25:rgba(6,255,35,.25);
+    --acc-13:rgba(6,255,35,.13);
+    --acc-ink:#041206;
+    --sans:'Orbitron',sans-serif;
+    --mono:'Space Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html,body{background:var(--bg);color:var(--body);font-family:var(--mono);line-height:1.6;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--acc);color:var(--acc-ink)}
+  a{color:inherit;text-decoration:none}
+  strong{color:var(--white);font-weight:700}
+  .hot{color:var(--acc);font-weight:700}
+
+  /* ============ HOJAS A4 ============ */
+  .page{
+    width:794px;height:1123px;
+    background:var(--page);
+    margin:28px auto;
+    padding:40px 46px 26px;
+    border:1px solid #101010;
+    box-shadow:0 30px 80px rgba(0,0,0,.7);
+    position:relative;overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+
+  /* ============ PIE DE PÁGINA ============ */
+  .pfoot{
+    margin-top:auto;border-top:1px solid var(--line);
+    padding-top:9px;display:flex;justify-content:space-between;align-items:center;
+    font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);
+  }
+  .pfoot b{color:var(--dim);font-weight:400}
+  .pfoot .pn{color:var(--acc);font-weight:700}
+
+  /* ============ MASTHEAD ============ */
+  .masthead{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    border-bottom:1px solid var(--line);padding-bottom:10px;
+  }
+  .brand{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.1em;color:var(--acc);text-transform:uppercase}
+  .brand span{color:var(--dim)}
+  .masthead .meta{text-align:right;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);line-height:1.7}
+  .masthead .meta b{color:var(--grey);font-weight:400}
+
+  .doc-meta{
+    margin-top:12px;display:flex;align-items:center;gap:0;
+    font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);
+  }
+  .doc-meta span{padding:0 12px;border-left:1px solid var(--line);white-space:nowrap}
+  .doc-meta span:first-child{padding-left:0;border-left:0;display:flex;align-items:center;gap:7px}
+  .doc-meta .grow{flex:1;border-left:0;text-align:right}
+  .dot{width:6px;height:6px;background:var(--acc);display:inline-block;box-shadow:0 0 8px rgba(6,255,35,.8)}
+  .blink{animation:blink 1.2s steps(2,start) infinite}
+  @keyframes blink{to{visibility:hidden}}
+
+  /* ============ HÉROE PORTADA ============ */
+  .hero{display:grid;grid-template-columns:1fr 322px;gap:26px;margin-top:20px;align-items:start}
+  .kicker{font-family:var(--sans);font-size:9.5px;font-weight:700;letter-spacing:.18em;color:var(--acc);text-transform:uppercase;margin-bottom:10px}
+  h1.cover{
+    font-family:var(--sans);font-weight:900;font-size:44px;line-height:1.04;
+    letter-spacing:.01em;color:var(--white);text-transform:uppercase;
+  }
+  .cursor{
+    display:inline-block;width:20px;height:34px;background:var(--acc);
+    margin-left:8px;vertical-align:-3px;
+    box-shadow:0 0 14px rgba(6,255,35,.55);
+    animation:blink 1.1s steps(2,start) infinite;
+  }
+  .prepared-for{margin-top:14px;font-size:10.5px;line-height:1.65;color:var(--grey)}
+  .prepared-for strong{color:var(--white)}
+
+  /* ============ ENCABEZADO DE SECCIÓN (ADN de marca) ============ */
+  .sec-head{
+    display:flex;align-items:baseline;gap:12px;
+    border-left:3px solid var(--acc);padding-left:12px;
+    margin-bottom:14px;
+  }
+  .sec-head .num{font-size:10px;font-weight:700;color:var(--acc);letter-spacing:.12em}
+  .sec-head h2{
+    font-family:var(--sans);font-size:14px;font-weight:700;letter-spacing:.05em;
+    color:var(--white);text-transform:uppercase;
+  }
+  .sec-head h2 small{display:block;font-family:var(--mono);font-size:8.5px;font-weight:400;letter-spacing:.14em;color:var(--dim);margin-top:2px;text-transform:uppercase}
+  .sec-head .tag{
+    margin-left:auto;display:flex;align-items:center;gap:6px;
+    font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);
+  }
+  .sec-head .tag .lucide{width:12px;height:12px;color:var(--acc-55)}
+
+  /* ============ OBJETIVO ============ */
+  .objective{font-size:12.5px;line-height:1.7;color:var(--body)}
+  .objective .from{color:var(--dim);text-decoration:line-through;text-decoration-color:var(--acc);text-decoration-thickness:1.5px}
+  .objective b{color:var(--white)}
+  .objective .hot{color:var(--acc)}
+
+  /* ============ PIZARRA TÁCTICA / RADAR ============ */
+  .pitch-wrap{border:1px solid var(--line);background:#070707;padding:10px 10px 7px;position:relative}
+  .pitch-wrap::before,.pitch-wrap::after{
+    content:"";position:absolute;width:14px;height:14px;pointer-events:none;
+  }
+  .pitch-wrap::before{top:-1px;left:-1px;border-top:2px solid var(--acc-55);border-left:2px solid var(--acc-55)}
+  .pitch-wrap::after{bottom:-1px;right:-1px;border-bottom:2px solid var(--acc-55);border-right:2px solid var(--acc-55)}
+  .pitch{width:100%;display:block}
+  .fig{
+    display:flex;justify-content:space-between;align-items:center;
+    margin-top:6px;font-size:7.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);
+  }
+  .fig .live{display:flex;align-items:center;gap:6px;color:var(--acc)}
+  .fig .live i{width:5px;height:5px;background:var(--acc);border-radius:50%;box-shadow:0 0 6px rgba(6,255,35,.9)}
+  /* trazo de la jugada */
+  .draw{stroke-dasharray:520;stroke-dashoffset:520}
+  .animated .draw{animation:draw 1.6s cubic-bezier(.6,0,.3,1) .5s forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  .wp{opacity:0}
+  .animated .wp1{animation:wpin .3s ease 1.1s forwards}
+  .animated .wp2{animation:wpin .3s ease 1.6s forwards}
+  @keyframes wpin{to{opacity:1}}
+  .ping-ring{transform-box:fill-box;transform-origin:center;animation:ping 2.2s ease-out infinite}
+  @keyframes ping{0%{transform:scale(.4);opacity:.9}75%{transform:scale(1.8);opacity:0}100%{transform:scale(1.8);opacity:0}}
+  .print-final .draw{animation:none;stroke-dashoffset:0}
+  .print-final .wp,.print-final .wp1,.print-final .wp2{opacity:1;animation:none}
+  .print-final .ping-ring,.print-final .blink,.print-final .cursor{animation:none}
+
+  /* ============ DIAGNÓSTICO ============ */
+  .diag{margin-top:26px}
+  .diag-intro{font-size:11.5px;color:var(--grey);margin-bottom:10px}
+  .gap{
+    display:grid;grid-template-columns:40px 1fr 168px;gap:16px;
+    padding:13px 0;border-top:1px solid var(--line);
+  }
+  .gap:last-of-type{border-bottom:1px solid var(--line)}
+  .gnum{font-family:var(--sans);font-weight:700;font-size:17px;color:rgba(6,255,35,.3);padding-top:2px}
+  .gap h3{
+    font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.06em;
+    color:var(--white);text-transform:uppercase;
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  }
+  .gap h3 .lucide{width:14px;height:14px;color:var(--acc)}
+  .gap .body{margin-top:5px;font-size:11.5px;line-height:1.6;color:var(--body)}
+  .risk{margin-top:6px;font-size:10.5px;line-height:1.55;color:var(--grey)}
+  .risk .lbl{font-size:8.5px;letter-spacing:.18em;color:var(--acc);font-weight:700;margin-right:8px}
+  .sev{font-family:var(--sans);font-size:7.5px;font-weight:700;letter-spacing:.14em;padding:3px 8px;text-transform:uppercase}
+  .sev.crit{background:var(--acc);color:var(--acc-ink)}
+  .sev.high{border:1px solid var(--acc-55);color:var(--acc)}
+  .metric{font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);line-height:1.5;padding-top:2px}
+  .metric .val{font-family:var(--sans);font-weight:700;font-size:16px;color:var(--white);display:block;margin:3px 0 8px;letter-spacing:.02em}
+  .metric .val small{font-family:var(--mono);font-size:8.5px;font-weight:400;color:var(--dim)}
+  .bar{position:relative;height:4px;background:var(--acc-13)}
+  .bar-fill{height:100%;width:0;transition:width 1.1s cubic-bezier(.5,0,.2,1) .3s}
+  .in .bar-fill{width:var(--w)}
+  .print-final .bar-fill{width:var(--w);transition:none}
+  .bar-mark{position:absolute;top:-3px;bottom:-3px;width:1.5px;background:var(--white)}
+  .bar-note{margin-top:6px;font-size:8.5px;color:var(--dim)}
+  .bar-note b{color:var(--grey);font-weight:400}
+
+  /* ============ ENCABEZADO PÁGINAS 2-3 ============ */
+  .phead{
+    display:flex;justify-content:space-between;align-items:baseline;
+    border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:22px;
+  }
+  .phead .mark{font-family:var(--sans);font-weight:700;font-size:10.5px;letter-spacing:.1em;color:var(--acc);text-transform:uppercase}
+  .phead .mark span{color:var(--dim)}
+  .phead .ref{font-size:8.5px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase}
+
+  /* ============ HOJA DE RUTA ============ */
+  .roadmap-intro{font-size:11.5px;color:var(--grey);margin-bottom:14px}
+  .phase{display:grid;grid-template-columns:34px 1fr;gap:14px;position:relative;padding-bottom:11px}
+  .phase::before{content:"";position:absolute;left:16px;top:34px;bottom:0;border-left:1px dashed rgba(6,255,35,.22)}
+  .phase:last-of-type::before{display:none}
+  .node{
+    width:32px;height:32px;border:1.5px solid var(--acc-55);color:var(--acc);
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:700;background:var(--page);
+    position:relative;z-index:1;transition:.25s;
+  }
+  .phase:hover .node{background:var(--acc);border-color:var(--acc);color:var(--acc-ink);box-shadow:0 0 18px rgba(6,255,35,.35)}
+  .p-title{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .p-kicker{font-size:8.5px;letter-spacing:.22em;color:var(--acc);font-weight:700;text-transform:uppercase}
+  .phase h3{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:.05em;color:var(--white);text-transform:uppercase}
+  .phase ul{list-style:none;margin:0 0 8px}
+  .phase li{position:relative;padding-left:18px;margin-bottom:5px;font-size:11px;line-height:1.55;color:var(--body)}
+  .phase li::before{content:"›";position:absolute;left:0;color:var(--acc);font-weight:700}
+  .deliverable{
+    border-top:1px dashed #262626;margin-top:8px;padding-top:8px;
+    font-size:10.5px;line-height:1.55;color:var(--grey);
+    display:flex;gap:8px;align-items:flex-start;
+  }
+  .deliverable .lucide{width:12px;height:12px;color:var(--acc);flex:none;margin-top:2px}
+  .deliverable b{color:var(--acc);font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;margin-right:4px}
+
+  /* ============ INVERSIÓN ============ */
+  .inv-sec{margin-top:20px}
+  table.inv{width:100%;border-collapse:collapse}
+  .inv th{
+    font-family:var(--sans);font-size:8.5px;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--acc);text-align:left;
+    padding:0 10px 7px 0;border-bottom:1px solid var(--acc-55);
+  }
+  .inv th:last-child{text-align:right;padding-right:0}
+  .inv td{padding:8px 10px 8px 0;border-bottom:1px solid var(--line);font-size:11px;color:var(--body);vertical-align:middle}
+  .inv tr:hover td{background:rgba(6,255,35,.03)}
+  .inv .f{font-size:9px;font-weight:700;color:var(--acc);letter-spacing:.1em}
+  .inv .m{text-align:right;font-weight:700;font-size:12px;color:var(--white);white-space:nowrap;padding-right:0}
+  .inv .m small{font-size:9px;font-weight:400;color:var(--dim)}
+  .inv tr.total td{border-top:1px solid var(--acc-55);border-bottom:none;color:var(--white)}
+  .inv tr.total .a{text-transform:uppercase;font-size:10px;letter-spacing:.08em}
+
+  .offer{
+    margin-top:14px;border:1px solid var(--acc-55);background:var(--panel-green);
+    padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:18px;
+  }
+  .offer .o-label{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--acc);text-transform:uppercase}
+  .offer .o-desc{font-size:10px;color:var(--grey);margin-top:5px;line-height:1.55}
+  .offer .o-right{text-align:right;flex:none}
+  .offer .o-price{font-family:var(--sans);font-weight:900;font-size:25px;color:var(--white);line-height:1;letter-spacing:.01em;white-space:nowrap}
+  .offer .o-price small{font-family:var(--mono);font-size:9.5px;font-weight:400;color:var(--grey)}
+  .offer .o-sub{margin-top:7px;display:flex;justify-content:flex-end;align-items:center;gap:10px}
+  .offer .o-was{font-size:10px;color:var(--dim);text-decoration:line-through}
+  .offer .o-save{font-family:var(--sans);font-size:7.5px;font-weight:700;letter-spacing:.12em;border:1px solid var(--acc-55);color:var(--acc);padding:3px 8px;text-transform:uppercase}
+  .offer .o-pay{margin-top:10px;padding-top:9px;border-top:1px dashed rgba(6,255,35,.25);font-size:9px;letter-spacing:.06em;color:var(--grey)}
+  .offer .o-pay b{color:var(--acc);font-size:8px;letter-spacing:.18em;margin-right:8px;text-transform:uppercase}
+
+  .notice{
+    margin-top:12px;border:1px dashed #2a2a2a;background:var(--panel-2);
+    padding:11px 14px;display:flex;gap:11px;align-items:flex-start;
+    font-size:10.5px;line-height:1.6;color:var(--grey);
+  }
+  .notice .lucide{width:14px;height:14px;color:var(--acc);flex:none;margin-top:2px}
+  .notice b{color:var(--acc);font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;margin-right:6px}
+
+  /* ============ PÁGINA 3 · VALOR ============ */
+  .prose{column-count:2;column-gap:28px;font-size:11px;line-height:1.65;color:var(--body);text-align:justify}
+  .prose p+p{margin-top:8px}
+  .prose .hot{color:var(--acc)}
+
+  .quote{
+    margin:14px 0;border-left:3px solid var(--acc);background:var(--panel-2);
+    padding:12px 16px;
+  }
+  .quote .q-lbl{font-size:8px;letter-spacing:.2em;color:var(--acc);font-weight:700;text-transform:uppercase;margin-bottom:7px}
+  .quote p{font-family:var(--sans);font-weight:500;font-size:13.5px;line-height:1.55;color:var(--white)}
+  .quote p span{color:var(--acc)}
+  .quote .q-src{margin-top:8px;font-size:8.5px;letter-spacing:.12em;color:var(--dim);text-transform:uppercase}
+
+  table.vs{width:100%;border-collapse:collapse;margin-top:4px}
+  .vs th{
+    font-family:var(--sans);font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    text-align:left;padding:0 12px 7px 0;border-bottom:1px solid var(--acc-55);
+  }
+  .vs th.now{color:var(--dim)}
+  .vs th.prop{color:var(--acc)}
+  .vs td{padding:7px 12px 7px 0;border-bottom:1px solid var(--line);font-size:10.5px;line-height:1.5;color:var(--grey);vertical-align:top}
+  .vs td.dim{font-size:8.5px;letter-spacing:.12em;color:var(--faint);text-transform:uppercase;width:96px;padding-top:9px}
+  .vs td.prop{border-left:2px solid var(--acc);padding-left:11px;color:var(--white);font-weight:700}
+
+  .markets{margin-top:13px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase}
+  .markets .lbl{color:var(--faint);margin-right:4px}
+  .markets span{border:1px solid #262626;padding:4px 10px;color:var(--body)}
+
+  /* ============ PRÓXIMOS PASOS ============ */
+  .kick{font-size:11px;color:var(--grey);margin-bottom:10px}
+  .req{display:flex;align-items:center;gap:13px;padding:9px 0;border-top:1px solid var(--line)}
+  .req:last-of-type{border-bottom:1px solid var(--line)}
+  .req .ric{width:28px;height:28px;border:1px solid #242424;flex:none;display:flex;align-items:center;justify-content:center}
+  .req .ric .lucide{width:13px;height:13px;color:var(--acc)}
+  .req .r-name{font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--white);text-transform:uppercase}
+  .req .r-note{margin-left:auto;font-size:8.5px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
+  .req .r-check{width:14px;height:14px;color:var(--acc-55);flex:none}
+
+  /* ============ CONTACTO ============ */
+  .contact{
+    margin-top:18px;border:1px solid var(--line);background:var(--panel);
+    padding:18px 20px 16px;position:relative;
+  }
+  .contact::before{content:"";position:absolute;top:-1px;left:-1px;width:14px;height:14px;border-top:2px solid var(--acc);border-left:2px solid var(--acc)}
+  .c-top{display:flex;justify-content:space-between;align-items:center;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:9px}
+  .c-top .la{color:var(--acc);font-weight:700;display:flex;align-items:center;gap:7px}
+  .contact h3{font-family:var(--sans);font-size:16px;font-weight:700;letter-spacing:.03em;color:var(--white);text-transform:uppercase}
+  .contact .c-role{font-size:9px;letter-spacing:.16em;color:var(--acc);text-transform:uppercase;margin-top:4px}
+  .c-grid{margin-top:13px;padding-top:12px;border-top:1px dashed #262626;display:grid;grid-template-columns:1.1fr 1.3fr 1fr;gap:9px 18px}
+  .c-item{display:flex;gap:8px;align-items:flex-start;font-size:10px;line-height:1.5}
+  .c-item .lucide{width:11px;height:11px;color:var(--acc);flex:none;margin-top:3px}
+  .c-item .c-lbl{display:block;font-size:7.5px;letter-spacing:.16em;color:var(--faint);text-transform:uppercase;margin-bottom:1px}
+  .c-item a{color:var(--body);text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;text-decoration-color:var(--acc-55)}
+  .c-item a:hover{color:var(--acc)}
+  .c-item .val{color:var(--body)}
+
+  /* ============ ANIMACIONES ============ */
+  .reveal{opacity:0;transform:translateY(12px);transition:opacity .7s ease,transform .7s cubic-bezier(.4,0,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .print-final .reveal{opacity:1;transform:none;transition:none}
+
+  /* ============ BARRA DE ACCIÓN (solo pantalla) ============ */
+  .toolbar{
+    position:fixed;bottom:24px;right:24px;z-index:50;
+    display:flex;align-items:center;gap:16px;
+    background:var(--panel);border:1px solid #242424;color:var(--white);
+    padding:10px 12px 10px 16px;box-shadow:0 0 40px rgba(0,0,0,.6);
+  }
+  .toolbar .t-info{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);line-height:1.7;text-align:right}
+  .toolbar .t-info b{display:block;color:var(--acc);font-weight:700}
+  .toolbar button{
+    font-family:var(--sans);font-weight:700;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    cursor:pointer;background:var(--acc);color:var(--acc-ink);border:0;padding:12px 16px;
+    display:flex;align-items:center;gap:8px;transition:.2s;
+  }
+  .toolbar button .lucide{width:14px;height:14px}
+  .toolbar button:hover{transform:translateY(-2px);box-shadow:0 0 26px rgba(6,255,35,.4)}
+
+  /* ============ IMPRESIÓN ============ */
+  @page{size:A4;margin:0}
+  @media print{
+    body{background:var(--bg)}
+    .page{margin:0;border:none;box-shadow:none;width:210mm;height:296mm;break-after:page}
+    .page:last-of-type{break-after:auto}
+    .toolbar{display:none!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== PÁGINA 1 · PORTADA Y DIAGNÓSTICO ==================== -->
+<section class="page" id="p1">
+
+  <header class="masthead reveal">
+    <div class="brand">LOST ASTRONAUTA <span>// GROWTH PARTNER</span></div>
+    <div class="meta"><b>Santiago · Chile</b><br>Ref TS-2026-09 · Rev A</div>
+  </header>
+
+  <div class="doc-meta reveal">
+    <span><i class="dot blink"></i>Propuesta confidencial</span>
+    <span>Optimización Estratégica &amp; Soberanía Digital</span>
+    <span class="grow">Sept 2026 · Sistema: listo para lanzamiento</span>
+  </div>
+
+  <div class="hero">
+    <div class="hero-l reveal">
+      <div class="kicker">Propuesta de optimización estratégica — TheSports.cl</div>
+      <h1 class="cover">Soberanía<br>Digital<span class="cursor"></span></h1>
+      <p class="prepared-for">Preparado exclusivamente para la <strong>Dirección de TheSports.cl</strong>.
+      Documento de trabajo interno: diagnóstico técnico, hoja de ruta en tres fases y condiciones de inversión.</p>
+
+      <div class="sec-head" style="margin-top:20px">
+        <span class="num">01</span>
+        <h2>Objetivo</h2>
+        <span class="tag"><i data-lucide="crosshair"></i>Target</span>
+      </div>
+      <p class="objective">
+        Transformar a TheSports.cl de un portal de noticias con
+        <span class="from">«visibilidad pasiva»</span> a una <b>plataforma de datos monetizable</b>,
+        dominante en nichos deportivos de alto valor y
+        <span class="hot">altamente atractiva para auspiciadores</span>.
+      </p>
+    </div>
+
+    <!-- Radar táctico: la jugada propuesta -->
+    <div class="hero-r reveal">
+      <div class="pitch-wrap">
+        <svg class="pitch animated" viewBox="0 0 360 330" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 Z" fill="#06FF23"/>
+            </marker>
+            <mask id="drawMask">
+              <path class="draw" d="M252 66 C214 82 238 130 188 144 C152 154 152 168 142 186"
+                    stroke="#fff" stroke-width="16" fill="none" stroke-linecap="round"/>
+            </mask>
+          </defs>
+          <!-- cancha wireframe -->
+          <g stroke="rgba(6,255,35,.18)" stroke-width="1.25">
+            <line x1="30" y1="16" x2="30" y2="306"/>
+            <line x1="30" y1="16" x2="344" y2="16"/>
+            <line x1="30" y1="306" x2="344" y2="306"/>
+            <path d="M30 112 H142 V252 H30"/>
+            <path d="M30 168 H92 V196 H30"/>
+            <rect x="12" y="162" width="18" height="40"/>
+            <path d="M142 132 A62 62 0 0 1 142 232"/>
+            <circle cx="114" cy="182" r="2" fill="rgba(6,255,35,.25)" stroke="none"/>
+            <path d="M262 16 A232 232 0 0 1 344 96" stroke-dasharray="2 6"/>
+          </g>
+          <!-- rivales (X) y compañeros (O) -->
+          <g stroke="#4b4b4b" stroke-width="2" stroke-linecap="round">
+            <path d="M212 108 l11 11 M223 108 l-11 11"/>
+            <path d="M170 168 l11 11 M181 168 l-11 11"/>
+            <path d="M232 196 l11 11 M243 196 l-11 11"/>
+          </g>
+          <g stroke="rgba(6,255,35,.5)" stroke-width="1.5">
+            <circle cx="290" cy="112" r="7"/>
+            <circle cx="152" cy="86" r="7"/>
+            <circle cx="306" cy="236" r="7"/>
+          </g>
+          <!-- ruta fantasma + jugada con glow -->
+          <path d="M252 66 C214 82 238 130 188 144 C152 154 152 168 142 186"
+                stroke="rgba(6,255,35,.22)" stroke-width="1.5" stroke-dasharray="3 5" fill="none"/>
+          <path d="M252 66 C214 82 238 130 188 144 C152 154 152 168 142 186"
+                stroke="rgba(6,255,35,.16)" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M252 66 C214 82 238 130 188 144 C152 154 152 168 142 186"
+                stroke="#06FF23" stroke-width="2" fill="none" stroke-linecap="round"
+                marker-end="url(#arrow)" mask="url(#drawMask)"/>
+          <!-- puntos de pase -->
+          <circle class="wp wp1" cx="188" cy="144" r="3" fill="#050505" stroke="#06FF23" stroke-width="1.5"/>
+          <circle class="wp wp2" cx="142" cy="186" r="3" fill="#050505" stroke="#06FF23" stroke-width="1.5"/>
+          <!-- balón con pulso -->
+          <circle class="ping-ring" cx="252" cy="66" r="9" stroke="rgba(6,255,35,.6)" stroke-width="1.5" fill="none"/>
+          <circle cx="252" cy="66" r="4.5" fill="#06FF23"/>
+          <!-- coordenadas (huevo de astronauta) -->
+          <text x="344" y="322" text-anchor="end" font-family="Space Mono, monospace" font-size="6.5" letter-spacing="1.5" fill="#333">LAT -33.4489 // LON -70.6693</text>
+        </svg>
+        <div class="fig">
+          <span>Fig.01 — Jugada propuesta: del dato al gol</span>
+          <span class="live"><i class="blink"></i>Táctica en vivo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 · Diagnóstico -->
+  <div class="diag reveal">
+    <div class="sec-head">
+      <span class="num">02</span>
+      <h2>Diagnóstico estratégico y técnico</h2>
+      <span class="tag"><i data-lucide="radar"></i>Auditoría</span>
+    </div>
+    <p class="diag-intro">Tras un análisis de la infraestructura actual del sitio, identificamos tres brechas críticas que limitan el crecimiento y la rentabilidad del portal:</p>
+
+    <div class="gap">
+      <div class="gnum">01</div>
+      <div>
+        <h3><i data-lucide="database"></i>Infraestructura de datos — el punto ciego <span class="sev crit">Crítica</span></h3>
+        <p class="body">El sitio cuenta con Google Tag Manager y GA4, pero funcionan como un «cascarón vacío»:
+        no se están midiendo eventos clave —profundidad de lectura, clics en banners, tiempo en página—.</p>
+        <p class="risk"><span class="lbl">Riesgo //</span>Se venden espacios publicitarios basados en «visitas totales», un modelo obsoleto.</p>
+      </div>
+      <div class="metric">
+        Eventos de conversión activos
+        <span class="val">0<small> /14 esperados</small></span>
+        <div class="bar"><div class="bar-fill" style="--w:4%;background:var(--acc)"></div></div>
+        <div class="bar-note">GA4 registra solo <b>page_view</b></div>
+      </div>
+    </div>
+
+    <div class="gap">
+      <div class="gnum">02</div>
+      <div>
+        <h3><i data-lucide="smartphone"></i>Experiencia mobile — fricción <span class="sev high">Alta</span></h3>
+        <p class="body">El 90% del tráfico de noticias es móvil. Se detectan oportunidades de mejora en el
+        Cumulative Layout Shift (CLS) —saltos de contenido al cargar— y en la disposición de elementos,
+        afectando la retención del lector y el posicionamiento en Google.</p>
+      </div>
+      <div class="metric">
+        CLS · móvil
+        <span class="val">0.24<small> medido</small></span>
+        <div class="bar">
+          <div class="bar-fill" style="--w:80%;background:var(--acc)"></div>
+          <div class="bar-mark" style="left:33%"></div>
+        </div>
+        <div class="bar-note">Umbral aceptable: <b>&lt; 0.10</b> (marca blanca)</div>
+      </div>
+    </div>
+
+    <div class="gap">
+      <div class="gnum">03</div>
+      <div>
+        <h3><i data-lucide="newspaper"></i>SEO y visibilidad de nicho <span class="sev high">Alta</span></h3>
+        <p class="body">Aunque usan All in One SEO, falta el Marcado de Datos Estructurados (Schema.org para
+        NewsArticle y SportsEvent). Sin esto, el sitio pierde la oportunidad de aparecer con fragmentos
+        destacados (Rich Snippets) en Google Noticias.</p>
+      </div>
+      <div class="metric">
+        Schema.org · cobertura
+        <span class="val">0%</span>
+        <div class="bar"><div class="bar-fill" style="--w:2%;background:var(--acc)"></div></div>
+        <div class="bar-note">NewsArticle / SportsEvent: <b>no detectados</b></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="pfoot">
+    <span><b>Lost Astronauta</b> × TheSports.cl</span>
+    <span>Confidencial</span>
+    <span class="pn">Pág. 01 / 03</span>
+  </footer>
+</section>
+
+<!-- ==================== PÁGINA 2 · HOJA DE RUTA E INVERSIÓN ==================== -->
+<section class="page" id="p2">
+  <header class="phead reveal">
+    <div class="mark">LOST ASTRONAUTA <span>// PROPUESTA</span></div>
+    <div class="ref">TS-2026-09 · Sept 2026</div>
+  </header>
+
+  <!-- 03 · Hoja de ruta -->
+  <div class="reveal">
+    <div class="sec-head">
+      <span class="num">03</span>
+      <h2>Hoja de ruta estratégica <small>Plan de 3 fases</small></h2>
+      <span class="tag"><i data-lucide="route"></i>Roadmap</span>
+    </div>
+    <p class="roadmap-intro">Metodología basada en la <strong>Soberanía Digital</strong>: configurar, optimizar y
+    traspasar el control total al cliente. <strong>No buscamos amarrar a TheSports.cl a un retainer eterno:
+    les dejamos las herramientas funcionando.</strong></p>
+
+    <div class="phase">
+      <div class="node">1</div>
+      <div>
+        <div class="p-title"><span class="p-kicker">Fase 1</span><h3>Fundación técnica y medición</h3></div>
+        <ul>
+          <li><strong>Ingeniería de datos:</strong> configuración avanzada de GTM y GA4. Implementación de eventos de conversión: scroll-depth, clics en inventario publicitario y tiempo de permanencia por sección.</li>
+          <li><strong>SEO estructural:</strong> implementación de Schema.org para Google Noticias y validación técnica de sitemaps.</li>
+          <li><strong>Optimización de performance:</strong> ajustes de Core Web Vitals para eliminar saltos de contenido (CLS) y acelerar la carga móvil.</li>
+        </ul>
+        <div class="deliverable"><i data-lucide="package-check"></i><span><b>Entregable —</b> Informe técnico de estado + sitio configurado y listo para escalar.</span></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="node">2</div>
+      <div>
+        <div class="p-title"><span class="p-kicker">Fase 2</span><h3>Aceleración de nicho y tráfico</h3></div>
+        <ul>
+          <li><strong>Estrategia long-tail:</strong> identificación y ataque de palabras clave de baja competencia en nichos específicos (Motor, Tenis, Deportes de Aventura).</li>
+          <li><strong>Inyección de tráfico calificado:</strong> configuración y lanzamiento de campañas en Meta Ads (segmentación hiper-específica) y Google Ads (Display / Remarketing para audiencias que ya leyeron notas).</li>
+        </ul>
+        <div class="deliverable"><i data-lucide="package-check"></i><span><b>Entregable —</b> Campañas activas, optimizadas y con tablero de medición de resultados en tiempo real.</span></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="node">3</div>
+      <div>
+        <div class="p-title"><span class="p-kicker">Fase 3</span><h3>Soberanía digital y autonomía</h3></div>
+        <ul>
+          <li><strong>Capacitación ejecutiva:</strong> sesión grabada (1.5 – 2 hrs) para el equipo: cómo leer dashboards de datos y ajustar campañas básicas.</li>
+          <li><strong>Manual de operaciones:</strong> guía PDF de redacción SEO y mantenimiento de las herramientas de difusión.</li>
+        </ul>
+        <div class="deliverable"><i data-lucide="key-round"></i><span><b>Entregable —</b> Traspaso formal de configuraciones y propiedad intelectual del proyecto.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 · Inversión -->
+  <div class="inv-sec reveal">
+    <div class="sec-head">
+      <span class="num">04</span>
+      <h2>Inversión y condiciones</h2>
+      <span class="tag"><i data-lucide="receipt-text"></i>CLP + IVA</span>
+    </div>
+
+    <table class="inv">
+      <thead>
+        <tr><th style="width:64px">Fase</th><th>Alcance</th><th>Inversión · Honorarios</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="f">FASE 1</td><td>Fundación Técnica y Medición</td><td class="m">$350.000 <small>CLP + IVA</small></td></tr>
+        <tr><td class="f">FASE 2</td><td>Aceleración y Tráfico de Nicho</td><td class="m">$300.000 <small>CLP + IVA</small></td></tr>
+        <tr><td class="f">FASE 3</td><td>Soberanía y Capacitación</td><td class="m">$250.000 <small>CLP + IVA</small></td></tr>
+        <tr class="total"><td class="f">TOTAL</td><td class="a">Proyecto completo · Valor normal</td><td class="m">$900.000 <small>CLP + IVA</small></td></tr>
+      </tbody>
+    </table>
+
+    <div class="offer">
+      <div>
+        <div class="o-label"><i data-lucide="star" style="width:10px;height:10px;vertical-align:-1px;margin-right:6px"></i>Oferta por implementación integral</div>
+        <div class="o-desc">Si se aprueban las tres fases en un solo paquete, la inversión total se reduce:</div>
+        <div class="o-pay"><b>Forma de pago</b>50% al inicio de la Fase 1 · 50% al finalizar la Fase 2</div>
+      </div>
+      <div class="o-right">
+        <div class="o-price">$750.000 <small>CLP + IVA</small></div>
+        <div class="o-sub"><span class="o-was">$900.000</span><span class="o-save">AhorrAS $150.000</span></div>
+      </div>
+    </div>
+
+    <div class="notice">
+      <i data-lucide="triangle-alert"></i>
+      <div><b>Nota importante //</b> Los montos anteriores corresponden exclusivamente a honorarios de consultoría,
+      configuración y gestión. El presupuesto de pauta publicitaria (inversión directa a Meta / Google) es definido
+      y pagado directamente por el cliente. Se sugiere un monto de prueba inicial de
+      <strong>$300.000 – $500.000 CLP mensuales</strong> para validar el embudo.</div>
+    </div>
+  </div>
+
+  <footer class="pfoot">
+    <span><b>Lost Astronauta</b> × TheSports.cl</span>
+    <span>Confidencial</span>
+    <span class="pn">Pág. 02 / 03</span>
+  </footer>
+</section>
+
+<!-- ==================== PÁGINA 3 · VALOR ESTRATÉGICO Y CIERRE ==================== -->
+<section class="page" id="p3">
+  <header class="phead reveal">
+    <div class="mark">LOST ASTRONAUTA <span>// PROPUESTA</span></div>
+    <div class="ref">TS-2026-09 · Sept 2026</div>
+  </header>
+
+  <!-- 05 · Valor estratégico -->
+  <div class="reveal">
+    <div class="sec-head">
+      <span class="num">05</span>
+      <h2>El valor estratégico</h2>
+      <span class="tag"><i data-lucide="gem"></i>Posicionamiento</span>
+    </div>
+    <div class="prose">
+      <p>La diferencia entre un portal de noticias y un <strong>activo digital rentable</strong> es la capacidad
+      de segmentación. Competir en noticias generales de «última hora» de fútbol es una guerra de volumen con
+      márgenes mínimos contra medios gigantes. En cambio, dominar nichos específicos (como <strong>Motor</strong> o
+      <strong>Tenis</strong>) permite a TheSports.cl dejar de vender simples «impresiones» para empezar a vender
+      <span class="hot">«impacto comprobado con datos»</span>.</p>
+      <p>Esto cambia por completo la conversación comercial con los auspiciadores: el sitio deja de competir por
+      precio de banner y pasa a vender acceso directo a una audiencia con intención de compra demostrable.</p>
+    </div>
+
+    <div class="quote">
+      <div class="q-lbl">El argumento ante auspiciadores</div>
+      <p>«Tenemos <span>X mil lectores mensuales</span> altamente segmentados e interesados exclusivamente en tu rubro.»</p>
+      <div class="q-src">Pitch de venta publicitaria · Modelo basado en datos</div>
+    </div>
+
+    <table class="vs">
+      <thead><tr><th></th><th class="now">Modelo actual · Volumen</th><th class="prop" style="width:42%">Modelo propuesto · Impacto</th></tr></thead>
+      <tbody>
+        <tr><td class="dim">Qué se vende</td><td>Impresiones y visitas totales</td><td class="prop">Impacto comprobado con datos</td></tr>
+        <tr><td class="dim">Competencia</td><td>Guerra de volumen contra medios gigantes</td><td class="prop">Nichos dominables de baja disputa</td></tr>
+        <tr><td class="dim">Margen</td><td>Mínimo, presionado por el mercado</td><td class="prop">Alto valor por audiencia calificada</td></tr>
+        <tr><td class="dim">Argumento</td><td>«Tenemos visitas»</td><td class="prop">«Tenemos a tu cliente exacto»</td></tr>
+      </tbody>
+    </table>
+
+    <div class="markets">
+      <span class="lbl">Mercados objetivo →</span>
+      <span>Retail deportivo</span><span>Suplementos</span><span>Casas de apuestas</span><span>Marcas deportivas</span>
+    </div>
+  </div>
+
+  <!-- 06 · Próximos pasos -->
+  <div class="reveal" style="margin-top:24px">
+    <div class="sec-head">
+      <span class="num">06</span>
+      <h2>Próximos pasos y requisitos</h2>
+      <span class="tag"><i data-lucide="flag"></i>Kick-off</span>
+    </div>
+    <p class="kick">Para dar inicio al proyecto, una vez aprobada la propuesta, requerimos acceso como colaborador a:</p>
+
+    <div class="req">
+      <div class="ric"><i data-lucide="layout-template"></i></div>
+      <div class="r-name">WordPress</div>
+      <div class="r-note">Rol: Administrador o Editor</div>
+      <i class="r-check" data-lucide="square"></i>
+    </div>
+    <div class="req">
+      <div class="ric"><i data-lucide="braces"></i></div>
+      <div class="r-name">Google Tag Manager + GA4</div>
+      <div class="r-note">Acceso de publicación</div>
+      <i class="r-check" data-lucide="square"></i>
+    </div>
+    <div class="req">
+      <div class="ric"><i data-lucide="megaphone"></i></div>
+      <div class="r-name">Meta Business Suite</div>
+      <div class="r-note">Si aplica para campañas</div>
+      <i class="r-check" data-lucide="square"></i>
+    </div>
+  </div>
+
+  <!-- Contacto -->
+  <div class="contact reveal">
+    <div class="c-top"><span class="la"><i class="dot"></i>Lost Astronauta</span><span>Transmisión · Contacto directo</span></div>
+    <h3>Jaime Alberto Galleguillos Araya</h3>
+    <div class="c-role">Consultor UX &amp; Estrategia Digital</div>
+    <div class="c-grid">
+      <div class="c-item"><i data-lucide="message-circle"></i>
+        <div><span class="c-lbl">WhatsApp</span><span class="val">+56 9 7569 3952</span></div>
+      </div>
+      <div class="c-item"><i data-lucide="mail"></i>
+        <div><span class="c-lbl">Email</span><a href="mailto:info@lostastronauta.org">info@lostastronauta.org</a></div>
+      </div>
+      <div class="c-item"><i data-lucide="linkedin"></i>
+        <div><span class="c-lbl">LinkedIn</span><a href="https://linkedin.com/in/lostastronauta" target="_blank" rel="noopener">/in/lostastronauta</a></div>
+      </div>
+      <div class="c-item"><i data-lucide="globe"></i>
+        <div><span class="c-lbl">Portafolio Web</span><a href="https://mykosgaleguilos.vercel.app" target="_blank" rel="noopener">mykosgaleguilos.vercel.app</a></div>
+      </div>
+      <div class="c-item"><i data-lucide="palette"></i>
+        <div><span class="c-lbl">Portafolio Publicidad</span><a href="https://www.behance.net/gallery/144299295/All-Works-For-Ads" target="_blank" rel="noopener">behance.net/gallery/144299295</a></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="pfoot">
+    <span><b>Lost Astronauta</b> × TheSports.cl</span>
+    <span>Confidencial</span>
+    <span class="pn">Pág. 03 / 03</span>
+  </footer>
+</section>
+
+<!-- Barra de acción (solo pantalla) -->
+<div class="toolbar">
+  <div class="t-info"><b>A4 · 3 páginas · fondo oscuro</b>Al exportar: márgenes «Ninguno»</div>
+  <button onclick="window.print()"><i data-lucide="printer"></i>Exportar PDF</button>
+</div>
+
+<script>
+  // Íconos (trazo fino, heredan color)
+  lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });
+
+  // Entrada en pantalla + barras de auditoría
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Al imprimir/exportar: congelar todo en estado final
+  window.addEventListener('beforeprint', () => {
+    document.documentElement.classList.add('print-final');
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  });
+</script>
+</body>
+</html>
